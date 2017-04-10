@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>React Gallery</title>
+        <meta property="og:type"        content="product"/>
+        <meta property="og:url"         content="jaypeeig.github.io" />
+        <meta property="og:title"       content="Raw Files" />
+        <meta property="og:description" content="Mount Pulag raw images" />
+        <meta property="og:image"       content="http://www.islandsofthephilippines.com/wp-content/uploads/2016/04/Mount-Pulag-Sea-Of-Clouds.jpg" />
+        <link href="css/lightgallery.min.css" rel="stylesheet">
+          <style>
+            body {
+              background-color: black;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    </head>
+    <body class="home">
+
+      <div id="lightgallery">
+      </div>
+
+      <script type="text/javascript">
+      $(document).ready(function(){
+        var data = <%- data %>
+        $('#lightgallery').lightGallery(data);
+        $('#lightgallery').on('onAfterOpen.lg', function(){
+          $('.lg-close').hide();
+          setTimeout(function(){
+            $('.lg-toogle-thumb').click();
+          }, 5000);
+        });
+      });
+      </script>
+
+      <script src="https://cdn.jsdelivr.net/picturefill/2.3.1/picturefill.min.js"></script>
+      <script src="js/lightgallery.min.js"></script>
+      <script src="js/lg-fullscreen.min.js"></script>
+      <script src="js/lg-thumbnail.min.js"></script>
+      <script src="js/lg-zoom.min.js"></script>
+    </body>
+</html>
